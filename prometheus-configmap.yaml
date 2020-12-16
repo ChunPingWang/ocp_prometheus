@@ -17,6 +17,6 @@ objects:
               - targets: ['localhost:9090'] # Configure Prometheus to scrape itself
                 labels:
                   group: 'prometheus'
-              - targets: ['s2i-dotnetcore-ex-metrics-demo.apps.cluster-taipei-771d.taipei-771d.example.opentlc.com'] #  'Copy to Editor'->
+              - targets: ['s2i-dotnetcore-ex-metrics-demo.apps.cluster-taipei-771d.taipei-771d.example.opentlc.com'] # replace this url
                 labels:
                   group: 'pad'
