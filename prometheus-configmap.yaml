@@ -1,0 +1,23 @@
+apiVersion: template.openshift.io/v1          # Click on 'Copy to Editor' --->
+kind: Template
+objects:
+  - apiVersion: v1          
+    kind: ConfigMap
+    metadata:
+      name: prometheus-demo
+      namespace: pad-monitoring
+    data:     
+      prometheus.yml: |     # Prometheus configuration starts below
+        global:                   
+          external_labels:
+            monitor: prometheus
+        scrape_configs:
+          - job_name: 'prometheus'
+
+            static_configs:
+              - targets: ['localhost:9090'] # Configure Prometheus to scrape itself
+                labels:
+                  group: 'prometheus'
+              - targets: ['s2i-dotnetcore-ex-metrics-demo.apps.cluster-taipei-771d.taipei-771d.example.opentlc.com'] #  'Copy to Editor'->
+                labels:
+                  group: 'pad'
