@@ -19,7 +19,6 @@ objects:
     kind: ConfigMap
     metadata:
       name: prometheus-demo
-      namespace: pad-monitoring
     data:
       prometheus.yml: |
         global:
